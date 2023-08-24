@@ -7,7 +7,8 @@ const {
     updateCar,
     deleteCar,
 } = require('../controllers/cars');
-
+const authenticate = require('../middleware/auth');
+router.use(authenticate);
 router.get("/",getAllCars);
 router.get("/:id",getCarById);
 router.post("/",createCar);

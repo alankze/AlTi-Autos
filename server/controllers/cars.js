@@ -3,7 +3,8 @@ const Car = require('../models/car');
 const createCar = async (req, res) => {
   try {
    
-    const newCar = await Car.create(req.body );
+    const newCar = await Car.create({ ...req.body,createdBy: req.user._id} );
+    
     console.log('🚀 ~ file: Cars.js:6 ~ createCar ~ newCar:', newCar);
 
     res.status(201).json(newCar);
@@ -13,7 +14,7 @@ const createCar = async (req, res) => {
 };
 const getAllCars = async (req, res) => {
   try {
-    const Cars = await Car.find();
+    const Cars = await Car.find().populate('createdBy','username email');
     console.log('🚀 ~ file: Cars.js:15 ~ getAllCars ~ Cars:', Cars);
     res.json(Cars);
   } catch (error) {
@@ -26,7 +27,7 @@ const getCarById = async (req, res) => {
       params: { id },
     } = req;
     // await Car.findById(id)
-    const Cars = await Car.find({ _id: id });
+    const Cars = await Car.find({ _id: id }).populate('createdBy','username email');
     console.log('🚀 ~ file: Cars.js:28 ~ getCarById ~ Cars:', Cars);
     if (Cars.length === 0) {
       res.status(404).json({ message: 'Car Not Found' });

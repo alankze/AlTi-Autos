@@ -14,7 +14,7 @@ const carSchema = mongoose.Schema(
         price: {type:Number}, 
         location: {type:String}, 
         bodyColor: {type:String},
-        
+        createdBy: {type:mongoose.Types.ObjectId, ref:'User'},
     },
     {
         timestamps: true,

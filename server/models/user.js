@@ -18,7 +18,7 @@ userSchema
 .set(value=>this._confirmPassword = value)
 
 userSchema.pre("validate",function(next){
-    if(this.password !== this._confirmPassword){
+    if(this.password !== this.confirmPassword){
         this.invalidate('confirmPassword',"Password need to match!")
     }
     next();
