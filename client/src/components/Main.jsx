@@ -5,14 +5,17 @@ import CarDetails from './CarDetails';
 import UpdateCar from './UpdateCar';
 
 const Main = () => {
-  return <main>
-    <Routes>
-        <Route path="/" element={<Cars />} />
-        <Route path="cars/new" element={<NewCar />} />
-        <Route path="cars/:id" element={<CarDetails />} />
-        <Route path="cars/:id/update" element={<UpdateCar />} />
-    </Routes>
-  </main>;
+  return(
+     <main>
+        <Routes>
+            <Route path="/" element={<Cars />} />
+            <Route path="cars/new" element={<NewCar />} />
+            <Route path="cars/:id" element={<CarDetails />} />
+            <Route path="cars/:id/update" element={<UpdateCar />} />
+        </Routes>
+    </main>
+  );
 };
 
-export default Main
+
+export default Main;
