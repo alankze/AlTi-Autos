@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from '../axiosInstance';
-const BookDetails = () => {
+const CarDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const [book, setBook] = useState(null); // book object from backend
+  const [book, setCar] = useState(null); // book object from backend
   useEffect(() => {
     axios
       .get(`/api/cars/${id}`)
@@ -23,10 +23,7 @@ const BookDetails = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {book && (
         <>
-          <h2>{book.title}</h2>
-          <p>Author: {book.author}</p>
-          <p>Year: {book.year}</p>
-          <p>Added By: {book.createdBy.username}</p>
+         
           <Link to={`/cars/${id}/update`}>Update Book</Link>
           <button onClick={handleDelete}>Delete Book</button>
         </>
@@ -35,4 +32,4 @@ const BookDetails = () => {
   );
 };
 
-export default BookDetails;
+export default CarDetails;

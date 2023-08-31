@@ -1,18 +1,8 @@
-import './App.css'
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import Layout from "./components/Layout";
 
 
 
 function App() {
-  return (
-   <>
-  <Header/>
-  <Main />
-  <Footer />
-  </>
-  );
+  return  <Layout />
 }
-
 export default App;
