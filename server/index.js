@@ -6,7 +6,7 @@ const app = express();
 const connectDB = require("./config/db");
 const carsRouter = require("./routes/cars");
 const authRouter = require("./routes/auth");
-const categoryRouter = require("./routes/categoryRoutes");
+
 const port = process.env.PORT || 8000;
 const path = require("path");
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
@@ -17,7 +17,7 @@ app.use("/auth", authRouter);
 if (process.env.NODE_ENV === "production") {
   const buildPath = path.join(__dirname, "../client/dist");
   app.use(express.static(buildPath));
-  app.use("/api/category", categoryRouter);
+
   app.get("*", (req, res) => res.sendFile(path.join(buildPath, "index.html")));
 }
 
