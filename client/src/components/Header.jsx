@@ -12,13 +12,13 @@ const Header = () => {
             </logo>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/cars">Home</NavLink>
           </li>
 
           {user ? (
             <>
               <li>
-                <NavLink to="/books/new">Add Car</NavLink>
+                <NavLink to="/cars/new">Add Car</NavLink>
               </li>
               <p>Hello {user.username}</p>
               <button onClick={logout}>Logout</button>
