@@ -1,5 +1,4 @@
 const Car = require("../models/car");
-const ApiFeatures = require("../utils/apifeatures");
 
 const createCar = async (req, res) => {
   try {
@@ -14,7 +13,7 @@ const createCar = async (req, res) => {
 };
 const getAllCars = async (req, res, next) => {
   try {
-    ApiFeatures()
+    ApiFeatures();
     const Cars = await Car.find().populate("createdBy", "username email");
     console.log("🚀 ~ file: Cars.js:15 ~ getAllCars ~ Cars:", Cars);
     res.json(Cars);
