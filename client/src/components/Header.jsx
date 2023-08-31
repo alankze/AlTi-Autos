@@ -7,6 +7,9 @@ const Header = () => {
   return (
     <header>
       <nav>
+            <logo>
+                <img src="/logo.png" alt="logo" />
+            </logo>
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
@@ -15,7 +18,7 @@ const Header = () => {
           {user ? (
             <>
               <li>
-                <NavLink to="/books/new">Add Book</NavLink>
+                <NavLink to="/books/new">Add Car</NavLink>
               </li>
               <p>Hello {user.username}</p>
               <button onClick={logout}>Logout</button>
@@ -30,6 +33,18 @@ const Header = () => {
               </li>
             </>
           )}
+                <li>
+                    <NavLink to="/">About Us</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/">Contact</NavLink>
+                </li>
+                <li>
+                    <button to="/">Favorite</button>
+                </li>
+                <li>
+                    <button to="/">Menu</button>
+                </li>
         </ul>
       </nav>
     </header>
