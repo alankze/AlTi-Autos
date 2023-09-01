@@ -1,7 +1,7 @@
 import {createContext, useState, useEffect} from 'react';
 import axios from '../axiosinstance';
 import { useNavigate } from 'react-router-dom';
-
+import Auth from 'auth';
 export const AuthContext = createContext();
 
 
@@ -68,3 +68,5 @@ export const AuthContext = createContext();
   return <AuthContext.Provider value={user,loading,errors}>{children}</AuthContext.Provider>
   
 }
+
+export default Auth;
