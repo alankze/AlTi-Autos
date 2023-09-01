@@ -1,31 +1,30 @@
-import React from 'react';
+import React from "react";
 
-import {Route, Routes} from 'react-router-dom';
+import { Route, Routes, Navigate } from "react-router-dom";
+import Home from "../pages/Home";
+import NewCar from "../pages/NewCar";
+import CarDetails from "../pages/CarDetails";
 
-import NewCar from './NewCar';
-import CarDetails from './CarDetails';
-import UpdateCar from './UpdateCar';
-import Login from './Login';
-import Register from './Register';
-import ProtectedRoute from './ProtectedRoute';
-import Cars from './Cars';
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import ProtectedRoute from "./ProtectedRoute";
+import Cars from "../pages/Cars";
 
 const Main = () => {
-  return(
-     <main>
-        <Routes>
-          <Route path= "/" element={<ProtectedRoute />}>
-            <Route path="cars" element={<Cars />} />
-            <Route path="cars/new" element={<NewCar />} />
-            <Route path="cars/:id" element={<CarDetails />} />
-            <Route path="cars/:id/update" element={<UpdateCar />} />
-            </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-        </Routes>
+  return (
+    <main>
+      <Routes>
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="cars" element={<Cars />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="cars/new" element={<NewCar />} />
+          <Route path="cars/:id" element={<CarDetails />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </main>
   );
 };
-
 
 export default Main;
