@@ -1,18 +1,18 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Container, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  return <footer>Footer</footer>;
-  return <footer>
-    <ul>
-      <li>
-        <NavLink to='/'>About Us</NavLink>
-      </li>
-      <li>
-        <NavLink to='/'>Contact</NavLink>
-      </li>
-    </ul>
-  </footer>;
+  return (
+    <footer className="footer">
+      <Container>
+        <Row>
+          <Col lg="4" md="4" sm="12"></Col>
+        </Row>
+      </Container>
+    </footer>
+  );
 };
 
 export default Footer;

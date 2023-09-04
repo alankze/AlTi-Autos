@@ -8,15 +8,12 @@ import CarDetails from './components/CarDetails';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Cars from './components/Cars';
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Header/>
-      <Main/>
-      <Footer/>
-    </>
+   <>
+  <Header/>
+  <Main />
+  <Footer />
+  </>
   );
 }
-
 export default App;
