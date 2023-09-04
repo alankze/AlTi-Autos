@@ -1,19 +1,38 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../context/Auth';
+
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
   return (
     <header>
-        <nav>
+      <nav>
             <logo>
                 <img src="/logo.png" alt="logo" />
             </logo>
-            <ul>
-                <li>
-                    <NavLink to="/">Search</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/cars/new">Sell</NavLink>
-                </li>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+
+          {user ? (
+            <>
+              <li>
+                <NavLink to="/cars/new">Add Car</NavLink>
+              </li>
+              <p>Hello {user.username}</p>
+              <button onClick={logout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/register">Register</NavLink>
+              </li>
+            </>
+          )}
                 <li>
                     <NavLink to="/">About Us</NavLink>
                 </li>
@@ -26,10 +45,10 @@ const Header = () => {
                 <li>
                     <button to="/">Menu</button>
                 </li>
-            </ul>
-        </nav>
+        </ul>
+      </nav>
     </header>
- );
+  );
 };
 
 export default Header;
