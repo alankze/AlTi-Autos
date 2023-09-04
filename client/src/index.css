@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@100&family=Source+Sans+3:wght@200;300;400;600;700;900&display=swap');
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* base style */
 * {
     margin: 0;
@@ -66,20 +68,9 @@ ul {
     padding: 50px 0px;
   }
   
-  .btn {
-    padding: 7px 15px;
-    background: #000d6b;
-    color: #fff;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
+ 
   
-  .btn:hover {
-    color: #fff !important;
-    background: #000c6bd0;
-  }
+ 
   
   @media only screen and (max-width: 768px) {
     section {

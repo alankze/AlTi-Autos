@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Item from "../components/Item";
 import { Container, Row, Col } from "reactstrap";
 import axios from "../axiosInstance";
 import CarItem from "../components/CarItem";
+import { Link } from "react-router-dom";
 const Cars = () => {
   const [cars, setCars] = useState(null); // cars array from backend
   // const [selectedBrand, setSelectedBrand] = useState();
@@ -30,24 +31,30 @@ const Cars = () => {
   }
 */
   return (
-    <>
-      <section>
-        <Container>
-          <Row>
-            {cars &&
-              cars.map((item) => (
-                <CarItem item={item} key={item.id} />
-                /*  <li key={car._id}>
+    <section>
+      <Container>
+        <Row>
+          {cars &&
+            cars.map((car) => (
+              <>
+                <CarItem item={car} key={car.id} />
+                <li key={car._id}>
+                  <Link to={`/cars/${car._id}`}>
+                    {car.brand} {car.model}
+                  </Link>
+                </li>
+              </>
+              /*  <li key={car._id}>
               <Link to={`/cars/${car._id}`}>
                 {car.brand} 
               </Link>
             </li>*/
-              ))}
-          </Row>
-        </Container>
-      </section>
-
-      {/*   <div className="app">
+            ))}
+        </Row>
+      </Container>
+    </section>
+  );
+  /*   <div className="app">
         <div className="filter-container">
           <div>Filter by Brand:</div>
           <div>
@@ -68,9 +75,7 @@ const Cars = () => {
             <Item {...element} key={index} />
           ))}
         </div>
-          </div>*/}
-    </>
-  );
+          </div>*/
 };
 
 export default Cars;

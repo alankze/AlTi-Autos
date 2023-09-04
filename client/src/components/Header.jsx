@@ -16,7 +16,7 @@ const navLinks = [
     display: "About",
   },
   {
-    path: "/search",
+    path: "/cars",
     display: "Search",
   },
   {
@@ -38,20 +38,35 @@ const Header = () => {
           <Row>
             <Col lg="6" md="6" sm="6">
               <div className="header__top__left">
-                <span>Logo</span>
+                <img src="../logo.png" className="logo"></img>
               </div>
             </Col>
-
-            <Col lg="6" md="6" sm="6">
-              <div className="header-top-right d-flex align-items-center justify-content-end gap-3">
-                <Link to="#" className="d-flex align-items-center gap-1">
-                  <i class="ri-login-circle-line"></i>Login
-                </Link>
-                <Link to="#" className="d-flex align-items-center gap-1">
-                  <i class="ri-user-line"></i>Register
-                </Link>
-              </div>
-            </Col>
+            {user ? (
+              <>
+                <div className="header-logout d-flex align-items-center justify-content-end gap-3 ">
+                  <p>Hello {user.username}</p>
+                  <button onClick={logout}>Logout</button>
+                  <i class="ri-logout-box-line"></i>
+                </div>
+              </>
+            ) : (
+              <Col lg="6" md="6" sm="6">
+                <div className="header-top-right d-flex align-items-center justify-content-end gap-3">
+                  <NavLink
+                    to="/login"
+                    className="d-flex align-items-center gap-1"
+                  >
+                    <i className="ri-login-circle-line"></i>Login
+                  </NavLink>
+                  <Link
+                    to="/register"
+                    className="d-flex align-items-center gap-1"
+                  >
+                    <i className="ri-user-line"></i>Register
+                  </Link>
+                </div>
+              </Col>
+            )}
           </Row>
         </Container>
       </div>
@@ -60,7 +75,7 @@ const Header = () => {
         <Container>
           <div className="navigation_wrapper d-flex align-items-center justify-content-between">
             <span className="mobile_menu">
-              <i class="ri-menu-line"></i>
+              <i className="ri-menu-line"></i>
             </span>
             <div className="navigation">
               <div className="menu">
@@ -81,7 +96,7 @@ const Header = () => {
               <div className="search_box">
                 <input type="text" placeholder="Search" />
                 <span>
-                  <i class="ri-search-line"></i>
+                  <i className="ri-search-line"></i>
                 </span>
               </div>
             </div>

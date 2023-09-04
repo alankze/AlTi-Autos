@@ -21,8 +21,21 @@ const CarDetails = () => {
   return (
     <div>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {book && (
+      {car && (
         <>
+          <h2>{car.brand}</h2>
+          <p>Model: {car.model}</p>
+          <p>Seats: {car.seats}</p>
+          <p>Number of Doors: {car.nrOfDoors}</p>
+          <p>Vehicle Condition: {car.vehicleCondition}</p>
+          <p>Fuel Type: {car.fuelType}</p>
+          <p>Body Type: {car.bodyType}</p>
+          <p>First Registration: {car.firstRegistration}</p>
+          <p>Mileage: {car.mileage}</p>
+          <p>Price: {car.price}</p>
+          <p>Location: {car.location}</p>
+          <p>Body Color: {car.bodyColor}</p>
+          <p></p>
           <Link to={`/cars/${id}/update`}>Update Car</Link>
           <button onClick={handleDelete}>Delete Car</button>
         </>

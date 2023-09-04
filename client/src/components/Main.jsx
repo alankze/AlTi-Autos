@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Cars from "../pages/Cars";
+import "../index.css";
 
 const Main = () => {
   return (
