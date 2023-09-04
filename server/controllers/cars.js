@@ -13,10 +13,6 @@ const createCar = async (req, res) => {
 };
 const getAllCars = async (req, res, next) => {
   try {
-<<<<<<< HEAD
-    ApiFeatures();
-=======
->>>>>>> tim
     const Cars = await Car.find().populate("createdBy", "username email");
     console.log("🚀 ~ file: Cars.js:15 ~ getAllCars ~ Cars:", Cars);
     res.json(Cars);
