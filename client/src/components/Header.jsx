@@ -18,7 +18,7 @@ const Header = () => {
           {user ? (
             <>
               <li>
-                <NavLink to="/books/new">Add Car</NavLink>
+                <NavLink to="/cars/new">Add Car</NavLink>
               </li>
               <p>Hello {user.username}</p>
               <button onClick={logout}>Logout</button>

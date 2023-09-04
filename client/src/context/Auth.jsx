@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import axios from '../axiosInstance';
 import { useNavigate } from 'react-router-dom';
+
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -37,10 +38,11 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.post('auth/register', user);
+      console.log("RESSSSS",res.data)
       setState(res.data.user, false, null);
       navigate('/');
     } catch (error) {
-      console.log(error.response);
+      console.log("sadasdasdasda",error);
       setState(null, false, error.response.data.errors);
     }
   };
@@ -64,3 +66,4 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
+

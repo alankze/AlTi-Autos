@@ -1,30 +1,25 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-import axios from '../axiosInstance';
-const Cars = () => {
-  const [cars, setCars] = useState(null); // cars array from backend
+function Cars() {
+  const [Cars, setCars] = useState([]);
   useEffect(() => {
     axios
-      .get(`/api/cars`)
+      .get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/cars`)
       .then(res => setCars(res.data))
       .catch(e => console.log(e));
   }, []);
 
   return (
     <div>
-      <h2>Car List</h2>
-      <ul>
-        {cars &&
-          cars.map(car => (
-            <li key={car._id}>
-              <Link to={`/cars/${car._id}`}>
-                {car.brand} 
-              </Link>
-            </li>
-          ))}
-      </ul>
+      {Cars.map(Cars => (
+        <p key={Cars._id}>
+          <Link to={`/cars/${Cars._id}`}>{Cars.name}</Link>
+        </p>
+      ))}
     </div>
   );
-};
+}
 
 export default Cars;
+
