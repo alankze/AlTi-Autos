@@ -22,13 +22,7 @@ const SellPage = () => {
   return (
     <div>
       <h1>Welcome to the Homepage</h1>
-      <Carousel>
-        {photos.map((photo, index) => (
-          <div key={index}>
-            <img src={photo} alt={`Slide ${index}`} />
-          </div>
-        ))}
-      </Carousel>
+   
     </div>
   );
 }*/

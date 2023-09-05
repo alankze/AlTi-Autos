@@ -22,6 +22,7 @@ function CarDetails() {
     <div>
       <h2>{car?.brand}</h2>
       <p>{car?.location}</p>
+      
       <img src={car?.image}/>
 
       <button onClick={handleDelete}>Delete Car</button>
