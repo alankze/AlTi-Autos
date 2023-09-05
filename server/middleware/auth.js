@@ -5,6 +5,7 @@ const authenticate = async (req,res,next) => {
         if(req.cookies.accessToken){
             const user = await jwt.verify(req.cookies.accessToken,SECRET)
             req.user = user;
+            console.log("WHAAAAT",req.body)
             next()
         }else{
             res.status(403).json({message: 'Forbidden'});

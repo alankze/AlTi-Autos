@@ -10,11 +10,14 @@ import Register from './Register';
 import ProtectedRoute from './ProtectedRoute';
 import Cars from './Cars';
 import AboutUsPage from '../pages/AboutUsPage';
+import ContactUsPage from '../pages/ContactUsPage';
+
 
 
 const Main = () => {
   return(
-     <main>
+    <div class="flex flex-col min-h-screen">
+     <main class="bg-slate-500">
         <Routes>
           <Route path= "/" element={<ProtectedRoute />}>
             <Route path="" element={<Cars />} />
@@ -25,8 +28,10 @@ const Main = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/AboutUsPage" element={<AboutUsPage />} />
+            <Route path="ContactUsPage" element={<ContactUsPage />} />
         </Routes>
-    </main>
+      </main>
+    </div>
   );
 };
 

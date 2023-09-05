@@ -24,39 +24,37 @@ function NewCar(props) {
 
   const submitHandler = async e => {
     e.preventDefault();
-    const { brand, model, seats, nrOfDoors, vehicleCondition, fuelType, bodyType, firstRegistration, mileage, price, location, bodyColor, createdBy,image} = car;
-    const formData = new FormData();
-    formData.append('brand', brand);
-    formData.append('model', model);
-    formData.append('seats', seats);
-    formData.append('nrOfDoors', nrOfDoors);
-    formData.append('vehicleCondition', vehicleCondition);
-    formData.append('fuelType', fuelType);
-    formData.append('bodyType', bodyType);
-    formData.append('firstRegistration', firstRegistration);
-    formData.append('mileage', mileage);
-    formData.append('price', price);
-    formData.append('location', location);
-    formData.append('bodyColor', bodyColor);
-    formData.append('createdBy', createdBy);
-    formData.append('image', image);
-  
+    // console.log(car)
+    // const { brand, model, seats, nrOfDoors, vehicleCondition, fuelType, bodyType, firstRegistration, mileage, price, location, bodyColor, createdBy,image} = car;
+    // const formData = new FormData();
+    // formData.append('brand', brand);
+    // formData.append('model', model);
+    // formData.append('seats', seats);
+    // formData.append('nrOfDoors', nrOfDoors);
+    // formData.append('vehicleCondition', vehicleCondition);
+    // formData.append('fuelType', fuelType);
+    // formData.append('bodyType', bodyType);
+    // formData.append('firstRegistration', firstRegistration);
+    // formData.append('mileage', mileage);
+    // formData.append('price', price);
+    // formData.append('location', location);
+    // formData.append('bodyColor', bodyColor);
+    // formData.append('createdBy', createdBy);
+    // formData.append('image', image);
     axios
-      .post(`${import.meta.env.VITE_SERVER_BASE_URL}/api/cars`, formData)
-      .then(res => navigate('/'))
+      .post(`/api/cars`, car)
+      .then(res =>navigate("/"))
       .catch(e => console.log(e));
   };
 
   const changeHandler = e => {
-    if (e.target.name === 'image') {
-      setCar({ ...car, image: e.target.files[0] });
-    } else {
+      console.log(e.target.name)
       setCar({ ...car, [e.target.name]: e.target.value });
-    }
+    
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} encType='application/x-www-form-urlencoded'>
       <label htmlFor="">Brand</label>
       <input type="text" name="brand" value={car.brand} onChange={changeHandler} />
       <label htmlFor="">Model</label>
@@ -84,7 +82,7 @@ function NewCar(props) {
       <label htmlFor="">CreatedBy</label>
       <input type="text" name="createdBy" value={car.createdBy} onChange={changeHandler} />
       <label htmlFor="">Image </label>
-      <input type="file" name="image" onChange={changeHandler} accept="image/*" />
+      <input type="text" name="image" onChange={changeHandler}  />
       <button>Add Car</button>
     </form>
   );

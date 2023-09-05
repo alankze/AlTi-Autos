@@ -15,6 +15,7 @@ const carSchema = mongoose.Schema(
         location: {type:String}, 
         bodyColor: {type:String},
         createdBy: {type:mongoose.Types.ObjectId, ref:'User'},
+        image:{type:String}
     },
     {
         timestamps: true,

@@ -9,8 +9,9 @@ const authRouter = require("./routes/auth");
 
 const port = process.env.PORT || 8000;
 const path = require("path");
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
+app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(cookieParser());
 app.use("/api/cars", carsRouter);
 app.use("/auth", authRouter);

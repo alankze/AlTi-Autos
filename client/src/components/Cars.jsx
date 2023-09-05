@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosinstance';
 import { Link } from 'react-router-dom';
+import  Carousel  from './Carousel';
 function Cars() {
-  const [Cars, setCars] = useState([]);
+  const [cars, setCars] = useState([]);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/cars`)
@@ -12,9 +13,12 @@ function Cars() {
 
   return (
     <div>
-      {Cars.map(Cars => (
-        <p key={Cars._id}>
-          <Link to={`/cars/${Cars._id}`}>{Cars.name}</Link>
+         <Carousel/>
+     
+    
+      {cars.map(car => (
+        <p key={car?._id}>
+          <Link to={`/cars/${car?._id}`}>{car?.brand}</Link>
         </p>
       ))}
     </div>
