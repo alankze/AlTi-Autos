@@ -8,13 +8,13 @@ function CarDetails() {
   const [car, setCar] = useState(null);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/cars/${id}`)
+      .get(`/api/cars/${id}`)
       .then(res => setCar(res.data))
       .catch(e => console.log(e));
   }, [id]);
   const handleDelete = () => {
     axios
-      .delete(`${import.meta.env.VITE_SERVER_BASE_URL}/api/cars/${id}`)
+      .delete(`/api/cars/${id}`)
       .then(res => navigate('/'))
       .catch(e => console.log(e));
   };

@@ -10,7 +10,7 @@ function Cars() {
   const [cars, setCars] = useState([]);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/cars`)
+      .get(`/api/cars`)
       .then(res => setCars(res.data))
       .catch(e => console.log(e));
   }, []);
