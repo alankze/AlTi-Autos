@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from '../axiosinstance';
 import { Link } from 'react-router-dom';
 import  Carousel  from './Carousel';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCar } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCar } from '@fortawesome/free-solid-svg-icons';
 
 
 function Cars() {
@@ -25,7 +25,7 @@ function Cars() {
           <div className='text-amber-500'>
           
             <p key={car?._id}>
-            <FontAwesomeIcon icon={faCar} className="text-2xl color-white" />
+            {/* <FontAwesomeIcon icon={faCar} className="text-2xl color-white" /> */}
             <Link to={`/cars/${car?._id}`}>{car?.brand}</Link>
             </p>
          </div>
