@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     axios
-      .get('auth/currentUser')
+      .get('/auth/currentUser')
       .then(res => setState(res.data.user, false, null))
       .catch(error => {
         setState(null, false, null);
@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
   const login = async user => {
     setLoading(true);
     try {
-      const res = await axios.post('auth/login', user);
+      const res = await axios.post('/auth/login', user);
       setState(res.data.user, false, null);
       navigate('/');
     } catch (error) {
@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
   const register = async user => {
     setLoading(true);
     try {
-      const res = await axios.post('auth/register', user);
+      const res = await axios.post('/auth/register', user);
       console.log("RESSSSS",res.data)
       setState(res.data.user, false, null);
       navigate('/');
@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
   const logout = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('auth/logout', {});
+      const res = await axios.post('/auth/logout', {});
       setState(null, false, null);
       navigate('/');
       window.location.reload();
