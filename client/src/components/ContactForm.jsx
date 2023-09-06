@@ -18,9 +18,9 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="mb-10 mt-1 max-w-md mx-auto">
       <div className="mb-4">
-        <label htmlFor="name" className="block mb-2 font-semibold">Name</label>
+        <label htmlFor="name" className="block mb-2 font-semibold text-white">Name</label>
         <input
           type="text"
           id="name"
@@ -31,7 +31,7 @@ function ContactForm() {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="block mb-2 font-semibold">Email</label>
+        <label htmlFor="email" className="block mb-2 font-semibold text-white">Email</label>
         <input
           type="email"
           id="email"
@@ -42,7 +42,7 @@ function ContactForm() {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="message" className="block mb-2 font-semibold">Message</label>
+        <label htmlFor="message" className="block mb-2 font-semibold text-white">Message</label>
         <textarea
           id="message"
           value={message}
@@ -51,9 +51,11 @@ function ContactForm() {
           required
         ></textarea>
       </div>
-      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-        Submit
-      </button>
+      <div class="flex justify-center" >
+        <button type="submit" className="flex justify-center px-4 py-2 bg-blue-900 text-white rounded-md hover:bg-amber-500">
+          Submit
+        </button>
+      </div>
     </form>
   );
 }

@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from '../axiosinstance';
 import { Link } from 'react-router-dom';
 import  Carousel  from './Carousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCar } from '@fortawesome/free-solid-svg-icons';
+
+
 function Cars() {
   const [cars, setCars] = useState([]);
   useEffect(() => {
@@ -14,15 +18,25 @@ function Cars() {
   return (
     <div>
          <Carousel/>
+         {cars.map(car => (
+     
+      
+          <>
+          <div className='text-amber-500'>
+          
+            <p key={car?._id}>
+            <FontAwesomeIcon icon={faCar} className="text-2xl color-white" />
+            <Link to={`/cars/${car?._id}`}>{car?.brand}</Link>
+            </p>
+         </div>
+         </>
      
     
-      {cars.map(car => (
-        <p key={car?._id}>
-          <Link to={`/cars/${car?._id}`}>{car?.brand}</Link>
-        </p>
-      ))}
+    
+        
+    ))} 
     </div>
-  );
+    )
 }
 
 export default Cars;

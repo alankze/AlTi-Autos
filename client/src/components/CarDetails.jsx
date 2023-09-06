@@ -21,9 +21,20 @@ function CarDetails() {
   return (
     <div>
       <h2>{car?.brand}</h2>
+      <p>{car?.model}</p>
+      <p>{car?.seats}</p>
+       <p>{car?.nrOfDoors}</p>
+      <p>{car?.vehicleCondition}</p>
+      <p>{car?.fuelType}</p>
+      <p>{car?.bodyType}</p>
+      <p>{car?.firstRegistration}</p>
+      <p>{car?.mileage}</p>
+      <p>{car?.price}</p>
       <p>{car?.location}</p>
-      
-      <img src={car?.image}/>
+      <p>{car?.bodyColor}</p>
+      {/* <h3>{car?.createdBy}</h3> */}
+
+      <img src={car?.image}/> 
 
       <button onClick={handleDelete}>Delete Car</button>
     </div>

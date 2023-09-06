@@ -16,8 +16,8 @@ import ContactUsPage from '../pages/ContactUsPage';
 
 const Main = () => {
   return(
-    <div class="flex flex-col min-h-screen">
-     <main class="bg-slate-500">
+    <div className="bg-gray-800 flex flex-col min-h-screen ">
+     <main className="bg-gray-800">
         <Routes>
           <Route path= "/" element={<ProtectedRoute />}>
             <Route path="" element={<Cars />} />

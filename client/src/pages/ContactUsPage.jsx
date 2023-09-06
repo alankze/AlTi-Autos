@@ -13,27 +13,36 @@ const ContactUsPage = () => {
       <div className="mb-4 mt-6 text-xl font-light leading-relaxed">
           <h1>Contact Us</h1>
           <div className="text-center">
-          <p className="mb-4 mt-6 text-xl font-light leading-relaxed">We would love to hear from you! If you have any questions, feedback, or inquiries, please don't hesitate to get in touch with us. You can reach us using the following methods:</p>
+          <p className="mb-4 mt-6 text-xl font-light leading-relaxed">We would love to hear from you! If you have any questions,<br/> feedback, or inquiries,<br/> please don't hesitate to get in touch with us.<br/> You can reach us using the following methods:</p>
           </div>
           
           <div className="text-center">
           <h2 className="text-2xl font-bold">Contact Information</h2>
           </div>
           <div>
-            <div className="text-center">
-              <ul class="list-disc">
-                  <li>Mailing Address:</li>
-                  <li>Fridrichstr.123</li>
-                  <li>City, State, ZIP Code</li>
-                  <li>Country</li>
-                  <li>Phone:</li>
-                  <li>+49 123-456-7890</li>
-                  <li>Email:</li>
-                  <li><span>info@alti-autos.com</span></li>
-                  <li>Social Media:</li>
-                  <li>Facebook: <span>facebook.com/alti-autos</span></li>
-                  <li>Twitter: @alti-autos</li>
-                  <li>Instagram: @alti-autos</li></ul>
+            <div className=" text-center">
+              <ul class="flex-col  list-disc">
+                  Mailing Address:
+                  <br/>
+                  Fridrichstr.123
+                  <br/>
+                  Berlin, Berlin, 10557
+                  <br/>
+                  Germany
+                  <br/>
+                  <br/>
+                  Phone:
+                  <br/>
+                  +49 123-456-7890
+                  <br/>
+                  Email:
+                  <span>info@alti-autos.com</span>
+                  Social Media:
+                  <br/>
+                  Facebook: <span>facebook.com/alti-autos</span>
+                  Twitter: <span>@alti-autos</span>
+                  Instagram: <span>@alti-autos</span>
+                  </ul>
             </div>
           </div>
       </div>
