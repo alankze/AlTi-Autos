@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Item from "../components/Item";
 import { Container, Row, Col } from "reactstrap";
-import axios from "../axiosInstance";
+import axios from "../axiosinstance";
 import CarItem from "../components/CarItem";
 import { Link } from "react-router-dom";
+import "../styles/cars.css";
+import { Form, FormGroup } from "reactstrap";
 const Cars = () => {
   const [cars, setCars] = useState(null); // cars array from backend
   // const [selectedBrand, setSelectedBrand] = useState();
+  /* const [searchInput, setSearchInput] = useState("");
+  const [filteredResults, setFilteredResults] = useState([]);*/
 
   useEffect(() => {
     axios
@@ -14,6 +18,23 @@ const Cars = () => {
       .then((res) => setCars(res.data))
       .catch((e) => console.log(e));
   }, []);
+
+  /* const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput !== "") {
+      const filteredData = cars.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(cars);
+    }
+  };
+  console.log(searchInput);
+  console.log("cars", cars);
 
   //Filterfunction
 
@@ -37,18 +58,20 @@ const Cars = () => {
           {cars &&
             cars.map((car) => (
               <>
-                <CarItem item={car} key={car.id} />
-                <li key={car._id}>
-                  <Link to={`/cars/${car._id}`}>
-                    {car.brand} {car.model}
-                  </Link>
-                </li>
+                <FormGroup className="form__group">
+                  <CarItem item={car} key={car.id} />
+                  <button key={car._id}>
+                    <Link to={`/cars/${car._id}`}>Car Details</Link>
+                  </button>
+                </FormGroup>
               </>
+
               /*  <li key={car._id}>
               <Link to={`/cars/${car._id}`}>
                 {car.brand} 
               </Link>
-            </li>*/
+            </li>
+*/
             ))}
         </Row>
       </Container>

@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 
 const carSchema = mongoose.Schema(
   {
+    id: { type: Number },
     brand: { type: String },
     model: { type: String },
+    carName: { type: String },
     seats: { type: Number },
     nrOfDoors: { type: Number },
     vehicleCondition: { type: String },
@@ -15,6 +17,7 @@ const carSchema = mongoose.Schema(
     location: { type: String },
     bodyColor: { type: String },
     createdBy: { type: mongoose.Types.ObjectId, ref: "User" },
+    image: { type: String },
   },
   {
     timestamps: true,

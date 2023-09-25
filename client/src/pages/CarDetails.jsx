@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import axios from "../axiosInstance";
+import axios from "../axiosinstance";
+import { Button, Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 const CarDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,26 +21,38 @@ const CarDetails = () => {
   };
   return (
     <div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {car && (
-        <>
-          <h2>{car.brand}</h2>
-          <p>Model: {car.model}</p>
-          <p>Seats: {car.seats}</p>
-          <p>Number of Doors: {car.nrOfDoors}</p>
-          <p>Vehicle Condition: {car.vehicleCondition}</p>
-          <p>Fuel Type: {car.fuelType}</p>
-          <p>Body Type: {car.bodyType}</p>
-          <p>First Registration: {car.firstRegistration}</p>
-          <p>Mileage: {car.mileage}</p>
-          <p>Price: {car.price}</p>
-          <p>Location: {car.location}</p>
-          <p>Body Color: {car.bodyColor}</p>
-          <p></p>
-          <Link to={`/cars/${id}/update`}>Update Car</Link>
-          <button onClick={handleDelete}>Delete Car</button>
-        </>
-      )}
+      {" "}
+      <Row>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {car && (
+          <>
+            <Col md={6}>
+              <img src={car.image} />
+            </Col>
+            <Col md={3}>
+              <ListGroup variant="flush">
+                <ListGroupItem>
+                  <h3>{car.brand}</h3>
+                </ListGroupItem>
+                <ListGroupItem>Model{car.model}</ListGroupItem>
+                <ListGroupItem>Number of seats{car.seats}</ListGroupItem>
+                <ListGroupItem>
+                  Vehicle Condition: {car.vehicleCondition}
+                </ListGroupItem>
+                <ListGroupItem>Fuel Type: {car.fuelType}</ListGroupItem>
+                <ListGroupItem>Body Type: {car.bodyType}</ListGroupItem>
+                <ListGroupItem>
+                  First Registration: {car.firstRegistration}
+                </ListGroupItem>
+                <ListGroupItem>Mileage: {car.mileage}</ListGroupItem>
+                <ListGroupItem>Price: {car.price}</ListGroupItem>
+                <ListGroupItem>Location: {car.location}</ListGroupItem>
+                <ListGroupItem>Body Color: {car.bodyColor}</ListGroupItem>
+              </ListGroup>
+            </Col>
+          </>
+        )}
+      </Row>
     </div>
   );
 };

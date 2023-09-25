@@ -3,13 +3,13 @@ import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import "../styles/car-item.css";
 const CarItem = (props) => {
-  const { id, imgUrl, model, brand, fuelType, price, mileage } = props.item;
+  const { id, image, model, brand, fuelType, price, mileage } = props.item;
 
   return (
     <Col lg="4" md="4" sm="6" className="mb-5">
       <div className="car_item">
         <div className="car_img">
-          <img src={imgUrl} alt="" className="w-100" />
+          <img src={image} alt="" className="w-100" />
         </div>
         <div className="car_item-content mt-4">
           <h4 className="section_title text-center">
